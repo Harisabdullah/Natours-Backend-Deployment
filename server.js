@@ -14,13 +14,17 @@ const DB = process.env.DATABASE.replace(
   //'123'
 );
 
-mongoose
-  .connect(DB, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-  })
-  .then(() =>  console.log('DB connection successful'));
+try{
+  mongoose
+    .connect(DB, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    })
+    .then(() =>  console.log('DB connection successful'));
+} catch(err){
+  console.log(err);
+}
 
 
 
